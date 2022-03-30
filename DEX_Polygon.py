@@ -19,10 +19,15 @@ whales = dict(
     WMATIC='0x019ba0325f1988213D448b3472fA1cf8D07618d7'
 )
 
-dex_router = dict(
-    uniswap='0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
-    sushiswap='0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506'
-)
+dex_factory = {
+    'quickswap': '0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32',
+    'sushiswap': '0xc35DADB65012eC5796536bD9864eD8773aBc74C4'
+}
+
+dex_router = {
+    'quickswap': '0xa5E0829CaCEd8fFDD4De3c43696c57F7D7A678ff',
+    'sushiswap': '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506'
+}
 
 AAVE = '0xd05e3E715d945B59290df0ae8eF85c1BdB684744'
 
