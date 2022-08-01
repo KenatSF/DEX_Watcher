@@ -11,10 +11,11 @@ load_dotenv()
 
 
 #web3 = Web3(Web3.HTTPProvider('http://localhost:8545'))
-web3 = Web3(Web3.HTTPProvider(os.getenv("ETH_INFURA_HTTP")))
+#web3 = Web3(Web3.HTTPProvider(os.getenv("ETH_INFURA_HTTP")))
+web3 = Web3(Web3.HTTPProvider(os.getenv("POLYGON_INFURA")))
 
-token_a = 'WETH'
-token_b = 'MATIC'
+token_a = 'WMATIC'
+token_b = 'DAI'
 
 def reserves_filter(web3, dex_name, pair_address):
     if pair_address != '0x0000000000000000000000000000000000000000':
@@ -34,7 +35,7 @@ def reserves_filter_v3(web3, dex_name, pool_address, token_0, token_1):
 
 pair_address_1 = dex.get_dex_pair_address(web3, dex.dex_factory['uniswap'], dex.token_name_erc20[token_a], dex.token_name_erc20[token_b])
 pair_address_2 = dex.get_dex_pair_address(web3, dex.dex_factory['sushiswap'], dex.token_name_erc20[token_a], dex.token_name_erc20[token_b])
-#pair_address_v3 = dex.get_dex_pool_address(web3, ky.token_name_erc20[token_a], ky.token_name_erc20[token_b], 3000)
+#pair_address_v3 = dex.get_dex_pool_address(web3, dex.token_name_erc20[token_a], dex.token_name_erc20[token_b], 10000)
 print("-------------------------------------------------------")
 print("Pair address: ")
 print(pair_address_1)
@@ -44,6 +45,6 @@ print("-------------------------------------------------------")
 print("Reserves")
 reserves_filter(web3, 'Uniswap', pair_address_1)
 reserves_filter(web3, 'Sushiswap', pair_address_2)
-#reserves_filter_v3(web3, 'Uniswap V3', pair_address_v3, ky.token_name_erc20[token_a], ky.token_name_erc20[token_b])
+#reserves_filter_v3(web3, 'Uniswap V3', pair_address_v3, dex.token_name_erc20[token_a], dex.token_name_erc20[token_b])
 
 print("--- %s seconds ---" % (time.time() - start_time))
